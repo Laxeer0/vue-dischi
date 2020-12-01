@@ -84,4 +84,6 @@ header img {
 .category > ul > li{
     color:#fff;
     margin-left: 50px;
+    
+    cursor: pointer;
 }

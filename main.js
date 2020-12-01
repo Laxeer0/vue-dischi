@@ -8,21 +8,22 @@ var root = new Vue({
     },
     created() {
         axios.get(this.apiUrl)
-        .then((response) => {
-            this.albums = response.data.response
-        });
-    
+            .then((response) => {
+                this.albums = response.data.response
+            });
+
     },
     computed: {
-        genreList(){
-            return this.albums.filter(album => {
-                if(this.currentGenre == 'all'){
-                    return album.genre
-                }else{
-                    return album.genre.toLowerCase().includes(this.currentGenre.toLowerCase()) 
-                }
-            })
-        }
+        genreList() {
+            if (this.currentGenre == 'all') {
+                return this.albums
+            } else {
+                return this.albums.filter(album => {
+                    return album.genre.toLowerCase().includes(this.currentGenre.toLowerCase())
+                })
+            }
+        },
+        
     }
 
 });
